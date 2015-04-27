@@ -11,8 +11,18 @@
 </p>
 
 <p>
+  <strong>Company:</strong>
+  <%= @shoe.company.try(:name) %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @shoe.category.try(:name) %>
+</p>
+
+<p>
   <strong>Price:</strong>
-  <%= @shoe.price %>
+  <%= @shoe.price %> $ 
 </p>
 
 <p>
