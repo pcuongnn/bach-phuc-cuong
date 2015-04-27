@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShoeStore</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<table width="920"  border="0" cellspacing="0" cellpadding="0" align="center">
+  
+  <%= render 'layouts/top'%>
+
+  <tr>
+    <td><table width="920"  border="0" cellspacing="0" cellpadding="0">
+      <tr align="left" valign="top">
+        
+        <%=render 'layouts/sidebar'%>
+
+        <td width="727">
+		
+		    <%= render 'layouts/main'%>  
+		    <%= yield %>
+		  </td>
+      </tr>
+    </table></td>
+  </tr>
+  
+  <%= render 'layouts/footer'%>
+</table>
+</body>
+
+</html>
