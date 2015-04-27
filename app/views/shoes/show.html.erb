@@ -15,5 +15,10 @@
   <%= @shoe.price %>
 </p>
 
+<p>
+  <strong>Image:</strong></br>
+  <img src= <%= @shoe.image_url %> height=250 width=250 />
+</p>
+
 <%= link_to 'Edit', edit_shoe_path(@shoe) %> |
 <%= link_to 'Back', shoes_path %>
