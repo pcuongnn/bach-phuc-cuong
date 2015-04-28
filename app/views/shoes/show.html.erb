@@ -30,5 +30,7 @@
   <img src= <%= @shoe.image_url %> height=250 width=250 />
 </p>
 
+<% if current_user.admin? %>
 <%= link_to 'Edit', edit_shoe_path(@shoe) %> |
+<% end %>
 <%= link_to 'Back', shoes_path %>

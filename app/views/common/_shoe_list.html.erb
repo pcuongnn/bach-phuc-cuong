@@ -23,8 +23,10 @@
         <td><%= shoe.category.try(:name) %></td>
         <td><img src=<%= shoe.image_url %> height=50 width=50 /></td>
         <td><%= link_to 'Show', shoe %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_shoe_path(shoe) %></td>
         <td><%= link_to 'Destroy', shoe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,6 @@
 
 <br>
 
+<%if current_user.admin? %>
 <%= link_to 'New Shoe', new_shoe_path %>
+<% end %>

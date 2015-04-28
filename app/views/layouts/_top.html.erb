@@ -6,10 +6,14 @@
       <tr>
         <td width="28%" align="left"><a href="http://www.templatesfreelance.com/"><img src=<%= asset_path "logo.jpg"%> alt="" width="262" height="77" border="0"></a></td>
         <td width="72%" align="right">
-		<a href="http://www.templatesfreelance.com/">Login</a>&nbsp;&nbsp;
-		<a href="http://www.templatesfreelance.com/">Registration</a> &nbsp;&nbsp;
-		<a href="http://www.templatesfreelance.com/">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
+		<% if user_signed_in? %>
+			<b>Welcome:</b> 
+			<i><%= current_user.email %></i>
+			<%= link_to "Sign Out", destroy_user_session_path , method: :delete %>
+		<% else %>
+			<%= link_to "Sign Up",new_user_registration_path %>
+			<%= link_to "Sign In",new_user_session_path %>
+		<% end %>
 		</td>
       </tr>
     </table></td>
