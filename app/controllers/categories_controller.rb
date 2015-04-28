@@ -5,13 +5,13 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     #@categories = Category.all
-    @shoes_category = Shoe.all
+    @shoes_category = Shoe.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @all_shoes_category = @category.shoes
+    @all_shoes_category = @category.shoes.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /categories/new

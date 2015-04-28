@@ -5,13 +5,13 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
-    @shoes_company = Shoe.all
+    #@shoes_company = Shoe.all
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
-    @all_shoes_company = @company.shoes
+    @all_shoes_company = @company.shoes.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /companies/new

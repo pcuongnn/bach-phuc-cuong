@@ -10,14 +10,14 @@
                   <ul>
 
                     <ul><h3><%= link_to "All Companies", companies_path %></h3>
-                    <% @companies.each do |t| %>
+                    <% companies.each do |t| %>
                       <li><a href=<%= company_path(t) %> ><%= t.name %></a></li>
                     <% end %>
                     </ul>
                     
                     
                     <ul><h3><%= link_to "All Categories", categories_path %></h3>
-                    <% @categories.each do |u| %>                                        
+                    <% categories.each do |u| %>                                        
                       <li><a href=<%= category_path(u) %> ><%= u.name %></a></li>
                     <% end %>
                     </ul>                   

@@ -14,10 +14,10 @@ categories.each do |t|
 end
 
 companies.each do |t|
-	Company.create(name: t)
+	Company.create(name: t,active: true)
 end
 
-(1..10).each do |t|
+(1..20).each do |t|
 	p = Shoe.new
 	p.name = "Shoe #{t}"
 	p.price = rand(45..100)

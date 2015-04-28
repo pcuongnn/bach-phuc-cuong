@@ -4,7 +4,7 @@ class ShoesController < ApplicationController
   # GET /shoes
   # GET /shoes.json
   def index
-    @shoes = Shoe.all
+    @shoes = Shoe.paginate(:page => params[:page], :per_page => 5)    
   end
 
   # GET /shoes/1
