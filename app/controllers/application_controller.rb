@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :get_all_categories_companies
 
+  private
+
   def get_all_categories_companies
   	@categories = Category.all
   	@companies = Company.all
