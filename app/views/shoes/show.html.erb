@@ -29,7 +29,25 @@
   <strong>Image:</strong></br>
   <img src= <%= @shoe.image_url %> height=250 width=250 />
 </p>
+<h3><i>Comments</i></h3>
 
+<% @all_comments.each do |comment| %>
+  <% unless comment.new_record? %>
+  <ul>
+    <li><i><%= comment.user.try(:email) %></i> : <%= comment.comment %></li>
+  </ul>
+  <% end %>
+<% end %>
+
+<%= form_for(@create_comment) do |f| %>
+  <%= f.text_area :comment%>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  </br>
+  <%= f.submit %>
+<% end %>
+
+</br>
 <% if current_user.admin? %>
 <%= link_to 'Edit', edit_shoe_path(@shoe) %> |
 <% end %>

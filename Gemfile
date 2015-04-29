@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_commentable'
 gem 'impressionist'
 gem 'will_paginate', '~> 3.0.6'
 gem 'devise'

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
+  
+  resources :comments
+
   resources :categories
 
   resources :companies

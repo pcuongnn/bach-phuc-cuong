@@ -12,6 +12,8 @@ class ShoesController < ApplicationController
   # GET /shoes/1
   # GET /shoes/1.json
   def show
+    @all_comments = @shoe.comments
+    @create_comment = @shoe.comments.build
   end
 
   # GET /shoes/new

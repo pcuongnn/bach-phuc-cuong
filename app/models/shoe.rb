@@ -9,4 +9,5 @@ class Shoe < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :company
 	is_impressionable counter_cache: true, unique: :all
+	acts_as_commentable
 end
