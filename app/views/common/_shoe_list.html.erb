@@ -1,5 +1,30 @@
 <h1>Listing shoes</h1>
+<h3>Most View</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Company</th>
+      <th>View</th>
+    </tr> 
+  </thead>
 
+  <tbody>
+    <% most_viewed.each do |viewed| %>
+    <tr>
+      <td><%= viewed.name %></td>
+      <td><%= viewed.price %>$</td>
+      <td><%= viewed.company.name %></td>
+      <td><%= viewed.category.name %></td>
+      <td><%= viewed.impressionist_count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>All Shoes</h3>
 <table>
   <thead>
     <tr>
@@ -9,6 +34,7 @@
       <th>Company</th>
       <th>Category</th>
       <th>Image</th>
+      <th>Views</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +48,7 @@
         <td><%= shoe.company.try(:name) %></td>
         <td><%= shoe.category.try(:name) %></td>
         <td><img src=<%= shoe.image_url %> height=50 width=50 /></td>
+        <td><%= shoe.impressionist_count %></td>
         <td><%= link_to 'Show', shoe %></td>
         <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_shoe_path(shoe) %></td>

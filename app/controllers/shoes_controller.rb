@@ -1,10 +1,12 @@
 class ShoesController < ApplicationController
   before_action :set_shoe, only: [:show, :edit, :update, :destroy]
+  impressionist :actions=>[:show,:index]
 
   # GET /shoes
   # GET /shoes.json
   def index
-    @shoes = Shoe.paginate(:page => params[:page], :per_page => 5)    
+    @shoes = Shoe.paginate(:page => params[:page], :per_page => 5).order('price DESC')    
+    @most_viewed = Shoe.order('impressions_count DESC').take(3)
   end
 
   # GET /shoes/1

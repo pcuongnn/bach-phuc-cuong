@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'impressionist'
 gem 'will_paginate', '~> 3.0.6'
 gem 'devise'
 gem 'rmagick', '~> 2.14.0'

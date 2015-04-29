@@ -11,7 +11,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-    @all_shoes_company = @company.shoes.paginate(:page => params[:page], :per_page => 5)
+    @all_shoes_company = @company.shoes.paginate(:page => params[:page], :per_page => 5).order('price DESC')
+    @company_most_viewed = @company.shoes.order('impressions_count DESC').take(3)
   end
 
   # GET /companies/new

@@ -5,13 +5,15 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     #@categories = Category.all
-    @shoes_category = Shoe.paginate(:page => params[:page], :per_page => 5)
+    @shoes_category = Shoe.paginate(:page => params[:page], :per_page => 5).order('price DESC')
+    @most_viewed = Shoe.order('impressions_count DESC').take(3)
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @all_shoes_category = @category.shoes.paginate(:page => params[:page], :per_page => 5)
+    @all_shoes_category = @category.shoes.paginate(:page => params[:page], :per_page => 5).order('price DESC')
+    @category_most_viewed = @category.shoes.order('impressions_count DESC').take(3)
   end
 
   # GET /categories/new
