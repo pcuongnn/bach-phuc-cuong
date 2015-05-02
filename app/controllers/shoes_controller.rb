@@ -1,5 +1,5 @@
 class ShoesController < ApplicationController
-  before_action :set_shoe, only: [:show, :edit, :update, :destroy]
+  before_action :set_shoe, only: [:show, :edit, :update, :destroy, :send_mail]
   impressionist :actions=>[:show,:index]
 
   # GET /shoes
@@ -14,6 +14,13 @@ class ShoesController < ApplicationController
   def show
     @all_comments = @shoe.comments
     @create_comment = @shoe.comments.build
+  end
+
+  def send_mail
+    @all_comments = @shoe.comments
+    @email = params[:email]
+    ShoeMailer.shoe_info(@email,@shoe,@all_comments).deliver
+    redirect_to shoe_path(@shoe)
   end
 
   # GET /shoes/new

@@ -1,0 +1,37 @@
+<h1>Hello <%= @email %></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shoe.description %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @shoe.company.try(:name) %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @shoe.category.try(:name) %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shoe.price %> $ 
+</p>
+
+<h3><i>Comments</i></h3>
+
+<% @all_comments.each do |comment| %>
+  <% unless comment.new_record? %>
+  <ul>
+    <li><i><%= comment.user.try(:email) %></i> : <%= comment.comment %></li>
+  </ul>
+  <% end %>
+<% end %>
+

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get 'shoes/:id/send_mail' => 'shoes#send_mail', as: :send_mail
+
   devise_for :admins
   devise_for :users
   

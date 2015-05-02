@@ -46,6 +46,12 @@
   </br>
   <%= f.submit %>
 <% end %>
+</br>
+<%= form_tag send_mail_path(@shoe),method: :get do %>
+  <%= label_tag 'Share this shoes to your friends : '%>
+  <%= text_field_tag :email %>
+  <%= submit_tag 'Send'%>
+<% end %>
 
 </br>
 <% if current_user.admin? %>
